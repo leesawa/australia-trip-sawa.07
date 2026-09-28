@@ -304,14 +304,63 @@ const days = [
 ];
 
 const colors=["#0e6f6d","#d65b45","#b8862f","#7a5aa6","#2d7cba","#4b8a55","#222","#e07a35","#c34c75","#6d7c87","#8b6f47"];
+
+/* Real-world coordinates used to place daily route points.
+   These are embedded so the route maps work offline. */
+const geo={
+  "Sydney Airport":[-33.9399,151.1753],"Circular Quay":[-33.8610,151.2100],"YHA Sydney Harbour":[-33.8595,151.2050],"YHA":[-33.8595,151.2050],
+  "Sydney Observatory":[-33.8596,151.2047],"Sydney Opera House":[-33.8568,151.2153],"Royal Botanic Garden":[-33.8642,151.2166],"Mrs Macquarie's Chair":[-33.8590,151.2230],
+  "Harbour Whale Watching":[-33.8585,151.2100],"Taronga Zoo":[-33.8433,151.2415],
+  "Spit Bridge":[-33.8398,151.2415],"Clontarf":[-33.8025,151.2540],"Grotto Point":[-33.8138,151.2810],"Dobroyd Head":[-33.8075,151.2780],"Reef Beach":[-33.7970,151.2770],"Fairlight":[-33.7950,151.2740],"Manly":[-33.7969,151.2840],
+  "Bondi Junction":[-33.8915,151.2470],"Bondi Beach":[-33.8915,151.2767],"Tamarama":[-33.9044,151.2699],"Bronte":[-33.9048,151.2653],"lyf Bondi Junction":[-33.8915,151.2470],
+  "Kiama Blowhole":[-34.6708,150.8540],"Kangaroo Valley":[-34.7350,150.5320],
+  "Surry Hills":[-33.8840,151.2090],"Sydney University":[-33.8886,151.1873],"Hyde Park":[-33.8730,151.2060],"St Mary's Cathedral":[-33.8710,151.2055],
+  "Melbourne Airport":[-37.6690,144.8410],"Melbourne Airport T2":[-37.6690,144.8410],"Crowne Plaza Carlton":[-37.7970,144.9630],"Crowne Plaza":[-37.7970,144.9630],
+  "Space Hotel":[-37.8078,144.9650],"Torquay":[-38.3320,144.3260],"Memorial Arch":[-38.6790,144.3920],"Wild Koala Spotting":[-38.6900,144.3700],"Apollo Bay":[-38.7590,143.6700],"Great Otway National Park":[-38.6500,143.6000],"Twelve Apostles & Gibsons Steps":[-38.6650,143.1050],"Loch Ard Gorge":[-38.6430,143.0660],"Colac":[-38.3400,143.5850],
+  "Brighton Bathing Boxes":[-37.9180,144.9980],"Moonlit Sanctuary Wildlife Conservation Park":[-38.2050,145.4200],"The Nobbies":[-38.5250,145.1470],"Penguin Parade / Penguins Plus":[-38.5070,145.1470],
+  "Melbourne City":[-37.8136,144.9631],"PARKROYAL Melbourne Airport":[-37.6690,144.8410],"Shanghai":[31.1443,121.8083]
+};
+
 function mapForRoute(route,color){
-  const pts=route.map((_,i)=>`${40+i*82},${70+(i%3)*28}`).join(" ");
-  const circles=route.map((name,i)=>{
-    const x=40+i*82,y=70+(i%3)*28;
-    const q=encodeURIComponent(name);
-    return `<a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener"><circle cx="${x}" cy="${y}" r="7" fill="${color}" class="maplink"/><text x="${x+10}" y="${y-10}" font-size="10" fill="currentColor">${name}</text></a>`;
-  }).join("");
-  return `<div class="mapbox"><svg viewBox="0 0 ${Math.max(620,route.length*82)} 150"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${circles}</svg></div>`;
+  const pts=route.map((name,i)=>geo[name]||null).filter(Boolean);
+  if(!pts.length) return `<div class="mapbox"><div class="muted" style="padding:20px">暂无足够点位数据</div></div>`;
+  const lats=pts.map(p=>p[0]), lngs=pts.map(p=>p[1]);
+  let minLat=Math.min(...lats),maxLat=Math.max(...lats),minLng=Math.min(...lngs),maxLng=Math.max(...lngs);
+  const latPad=Math.max((maxLat-minLat)*0.16,0.012),lngPad=Math.max((maxLng-minLng)*0.16,0.012);
+  minLat-=latPad;maxLat+=latPad;minLng-=lngPad;maxLng+=lngPad;
+  const W=900,H=310,px=55,py=38;
+  const sx=(W-2*px)/(maxLng-minLng||1), sy=(H-2*py)/(maxLat-minLat||1);
+  const scale=Math.min(sx,sy);
+  const project=(lat,lng)=>{
+    const x=px+(lng-minLng)*scale;
+    const y=H-py-(lat-minLat)*scale;
+    return [x,y];
+  };
+  const routePts=route.map(name=>geo[name] ? project(...geo[name].map(Number)) : null);
+  const valid=routePts.filter(Boolean);
+  const poly=valid.map(p=>p.join(',')).join(' ');
+  const links=route.map((name,i)=>{
+    const c=geo[name]; if(!c) return '';
+    const [x,y]=project(c[0],c[1]);
+    const q=encodeURIComponent(`${c[0]},${c[1]}`);
+    const label=name.length>24 ? name.slice(0,23)+'…' : name;
+    const ly=y<48?y+22:y-12;
+    const anchor=x>W-170?'end':'start';
+    const lx=anchor==='end'?x-10:x+10;
+    return `<a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="${color}" class="maplink"/><text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" font-size="11" fill="currentColor" font-weight="700">${label}</text></a>`;
+  }).join('');
+  const grid=[];
+  for(let i=1;i<5;i++){const x=px+(W-2*px)*i/5;grid.push(`<line x1="${x}" y1="${py}" x2="${x}" y2="${H-py}" stroke="currentColor" opacity=".07"/>`)}
+  for(let i=1;i<4;i++){const y=py+(H-2*py)*i/4;grid.push(`<line x1="${px}" y1="${y}" x2="${W-px}" y2="${y}" stroke="currentColor" opacity=".07"/>`)}
+  const first=route.find(n=>geo[n]), last=[...route].reverse().find(n=>geo[n]);
+  const dir=first&&last&&first!==last ? `${first} → ${last}` : '';
+  return `<div class="mapbox realmap"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${route.join(' → ')}">
+    ${grid.join('')}
+    <text x="${W-28}" y="24" text-anchor="middle" font-size="15" font-weight="800" fill="currentColor">N</text><path d="M${W-28} 30 L${W-28} 54" stroke="currentColor" stroke-width="2"/><path d="M${W-28} 30 L${W-33} 40 M${W-28} 30 L${W-23} 40" stroke="currentColor" stroke-width="2" fill="none"/>
+    <polyline points="${poly}" fill="none" stroke="${color}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".82"/>
+    ${links}
+    <text x="${px}" y="${H-12}" font-size="10" fill="currentColor" opacity=".55">按实际经纬度排布 · ${dir}</text>
+  </svg></div>`;
 }
 const daysEl=document.getElementById("days");
 daysEl.innerHTML=days.map((day,di)=>`
@@ -320,7 +369,7 @@ daysEl.innerHTML=days.map((day,di)=>`
    <div><h3>${day.d} · ${day.date} ${day.week}</h3><div class="city">${day.city}</div></div>
    <button class="toggle" type="button" aria-expanded="false">路线地图</button>
  </div>
- <div class="dayroute">${mapForRoute(day.route,colors[di])}<div class="waypoints">${day.route.map(name=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}" target="_blank" rel="noopener">📍 ${name}</a>`).join("")}</div><p class="muted" style="font-size:11px;margin:6px 0">每个地点独立点击，直接打开对应 Google Maps。</p></div>
+ <div class="dayroute">${mapForRoute(day.route,colors[di])}<div class="waypoints">${day.route.map(name=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}" target="_blank" rel="noopener">📍 ${name}</a>`).join("")}</div><p class="muted" style="font-size:11px;margin:6px 0">每个地点按实际地理位置排布；点击地点可直接打开对应 Google Maps。</p></div>
  <div class="timeline">${day.items.map((x,ii)=>`
    <div class="item">
     <div class="time">${x[0]}<small>${day.city}</small></div>
