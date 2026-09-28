@@ -18,7 +18,7 @@ a{color:inherit}
 .wrap{max-width:1080px;margin:auto;padding:18px}
 .hero{padding:20px 0 8px}
 .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:800}
-h1{font-size:clamp(28px,6vw,52px);line-height:1.02;margin:8px 0}
+h1{font-size:clamp(24px,8vw,52px);line-height:1.02;margin:8px 0;white-space:nowrap;letter-spacing:-.03em}
 .sub{color:var(--muted);margin:0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin:14px 0}
 .section-title{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:28px 0 10px}
@@ -94,7 +94,7 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
 <main class="wrap">
   <header class="hero">
     <div class="kicker">Australia · 2026</div>
-    <h1>SYDNEY<br>→ MELBOURNE</h1>
+    <h1>SYDNEY &amp; MELBOURNE</h1>
     <p class="sub">10.15 — 10.25 · Solo trip · 11 days</p>
   </header>
 
@@ -121,7 +121,7 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
         <!-- Sydney daily routes -->
         <path class="route" stroke="#0e6f6d" d="M170 150 L205 160 L240 170 L275 210 L250 230 L225 245"/>
         <circle class="daydot" fill="#0e6f6d" cx="170" cy="150" r="8"/><circle class="daydot" fill="#0e6f6d" cx="205" cy="160" r="8"/><circle class="daydot" fill="#0e6f6d" cx="240" cy="170" r="8"/><circle class="daydot" fill="#0e6f6d" cx="275" cy="210" r="8"/><circle class="daydot" fill="#0e6f6d" cx="250" cy="230" r="8"/><circle class="daydot" fill="#0e6f6d" cx="225" cy="245" r="8"/>
-        <text x="145" y="140" class="maplabel">D1</text><text x="192" y="150" class="maplabel">Observatory</text><text x="245" y="158" class="maplabel">Opera House</text><text x="280" y="205" class="maplabel">RBG</text><text x="255" y="247" class="maplabel">Mrs Macquarie's Chair</text><text x="178" y="270" class="maplabel">YHA</text>
+        <text x="112" y="116" class="maplabel">D1</text><text x="192" y="150" class="maplabel">Observatory</text><text x="245" y="158" class="maplabel">Opera House</text><text x="280" y="205" class="maplabel">RBG</text><text x="255" y="247" class="maplabel">Mrs Macquarie's Chair</text><text x="178" y="270" class="maplabel">YHA</text>
 
         <path class="route" stroke="#d65b45" d="M180 150 C150 115 115 135 105 185 S135 250 195 235"/>
         <circle class="daydot" fill="#d65b45" cx="180" cy="150" r="7"/><circle class="daydot" fill="#d65b45" cx="105" cy="185" r="7"/><circle class="daydot" fill="#d65b45" cx="195" cy="235" r="7"/>
@@ -178,8 +178,8 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
     <div class="booking"><div class="icon">🏨</div><div><h3>YHA Sydney Harbour</h3><p>10/15 14:00 → 10/18 10:00</p><p>22 Cumberland St, The Rocks NSW 2000</p><a href="https://www.google.com/maps/search/?api=1&query=22+Cumberland+St+The+Rocks+NSW+2000" target="_blank">打开 Google Maps →</a></div></div>
     <div class="booking"><div class="icon">🏨</div><div><h3>lyf Bondi Junction Sydney</h3><p>10/18 14:00 → 10/20 10:00</p><p>5–11 Hollywood Avenue, Bondi Junction NSW 2022</p><a href="https://www.google.com/maps/search/?api=1&query=5-11+Hollywood+Avenue+Bondi+Junction+NSW+2022" target="_blank">打开 Google Maps →</a></div></div>
     <div class="booking"><div class="icon">🏨</div><div><h3>YHA Sydney Harbour · 返住</h3><p>10/20 14:00 → 10/21 10:00</p><p>22 Cumberland St, The Rocks NSW 2000</p><a href="https://www.google.com/maps/search/?api=1&query=22+Cumberland+St+The+Rocks+NSW+2000" target="_blank">打开 Google Maps →</a></div></div>
-    <div class="booking"><div class="icon">🏨</div><div><h3>Crowne Plaza Melbourne Carlton</h3><p>10/21 15:00 → 10/24 11:00</p><p>地址：待补充精确地址</p></div></div>
-    <div class="booking"><div class="icon">🏨</div><div><h3>PARKROYAL Melbourne Airport</h3><p>10/24 15:00 → 10/25 11:00</p><p>墨尔本机场 · 精确地址待补充</p></div></div>
+    <div class="booking"><div class="icon">🏨</div><div><h3>Crowne Plaza Melbourne Carlton</h3><p>10/21 15:00 → 10/24 11:00</p><p>701 Swanston St, Carlton VIC 3053</p><a href="https://www.google.com/maps/search/?api=1&query=701+Swanston+St+Carlton+VIC+3053" target="_blank">打开 Google Maps →</a></div></div>
+    <div class="booking"><div class="icon">🏨</div><div><h3>PARKROYAL Melbourne Airport</h3><p>10/24 15:00 → 10/25 11:00</p><p>Melbourne Airport, Arrival Dr, Tullamarine VIC 3045</p><a href="https://www.google.com/maps/search/?api=1&query=Melbourne+Airport+Arrival+Dr+Tullamarine+VIC+3045" target="_blank">打开 Google Maps →</a></div></div>
     <div class="booking"><div class="icon">🚌</div><div><h3>大洋路 & 十二门徒岩一日游</h3><p>10/22 · 07:00 出发</p><p>集合：Space Hotel, 380 Russell St, Melbourne</p><a href="https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne" target="_blank">打开集合点 →</a></div></div>
     <div class="booking"><div class="icon">🐧</div><div><h3>Phillip Island 一日游</h3><p>10/23 · 11:00 出发</p><p>集合：Space Hotel, 380 Russell St, Melbourne</p><a href="https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne" target="_blank">打开集合点 →</a></div></div>
     <div class="booking"><div class="icon">✈</div><div><h3>HO1656 · 墨尔本 → 上海</h3><p>10/25 09:00 · Melbourne Airport T2</p><p>16:20 抵达上海</p></div></div>
@@ -197,7 +197,7 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
   <section class="card">
     <div class="tip"><b>时区：</b>10 月中下旬 Sydney / Melbourne 均处于 AEDT（UTC+11）；上海/香港为 UTC+8。2026 年澳洲东部夏令时从 10/4 开始，所以本次澳洲行的本地时间比上海快 3 小时。<sup>①</sup></div>
     <div class="tip"><b>倒计时：</b>所有核心事件在代码里以带 UTC offset 的 ISO 时间保存，不依赖“打开设备所在时区”，因此换到澳洲后不会因为手机时区变化而把倒计时算错。</div>
-    <div class="tip warn"><b>目前需要补数据：</b>10/21 Sydney → Melbourne 航班尚未购买；Crowne Plaza Melbourne Carlton 的精确地址/电话尚未写入；PARKROYAL 的精确地址/电话尚未写入；歌剧院、观鲸等门票时间尚未锁定。</div>
+    <div class="tip warn"><b>目前需要补数据：</b>10/21 Sydney → Melbourne 航班尚未购买；Crowne Plaza Melbourne Carlton 与 PARKROYAL Melbourne Airport 的精确地址已补充；电话尚未写入；歌剧院、观鲸等门票时间尚未锁定。</div>
     <div class="tip"><b>10/17 徒步：</b>按你的要求固定为 Spit Bridge → Grotto Point → Manly，再乘 F1 返回 Circular Quay；当天不为了“塞满”额外增加主景点。</div>
     <div class="tip"><b>10/19：</b>按你的要求固定为 Kiama Blowhole + Kangaroo Valley 一日游。</div>
     <div class="tip"><b>公共假期：</b>NSW Labour Day 是 10/5，不在本次 Sydney 行程内。<sup>②</sup></div>
@@ -271,20 +271,32 @@ const days = [
 ]},
 {d:"D7",date:"10/21",week:"周三",city:"SYDNEY → MELBOURNE",route:["YHA","Sydney Airport","Melbourne Airport","Crowne Plaza Carlton"],items:[
 ["09:30","Sydney → Melbourne 航班","当前仅为计划时间，机票尚未购买；出票后必须整体重排当天。",""],
-["15:00","Crowne Plaza Melbourne Carlton 入住","精确地址待补充。",""],
+["15:00","Crowne Plaza Melbourne Carlton 入住","701 Swanston St, Carlton VIC 3053。","https://www.google.com/maps/search/?api=1&query=701+Swanston+St+Carlton+VIC+3053"],
 ]},
-{d:"D8",date:"10/22",week:"周四",city:"MELBOURNE",route:["Crowne Plaza Carlton","Space Hotel","Great Ocean Road","Twelve Apostles","Space Hotel","Crowne Plaza"],items:[
-["07:00","Space Hotel 集合","380 Russell St, Melbourne；务必预留酒店 → 集合点的交通时间。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"],
-["全天","Great Ocean Road + Twelve Apostles","Go West Tours 一日游。",""],
+{d:"D8",date:"10/22",week:"周四",city:"MELBOURNE",route:["Crowne Plaza Carlton","Space Hotel","Torquay","Memorial Arch","Wild Koala Spotting","Apollo Bay","Great Otway National Park","Twelve Apostles & Gibsons Steps","Loch Ard Gorge","Colac","Space Hotel","Crowne Plaza"],items:[
+["07:00","Space Hotel 集合 / 出发","380 Russell St, Melbourne；Go West Tours 大洋路与十二门徒岩一日游。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"],
+["09:30","Torquay 早餐","约30分钟；海边早餐 / 早茶。","https://www.google.com/maps/search/?api=1&query=Torquay+VIC"],
+["11:00","Memorial Arch","约10分钟；大洋路纪念拱门。","https://www.google.com/maps/search/?api=1&query=Memorial+Arch+Great+Ocean+Road"],
+["11:45","Wild Koala Spotting","约20分钟；沿途寻找野生考拉。",""],
+["12:30","Apollo Bay 午餐","约30分钟；海滨小镇自由午餐。","https://www.google.com/maps/search/?api=1&query=Apollo+Bay+VIC"],
+["13:30","Great Otway National Park","约30分钟；桉树林 / 雨林漫步。","https://www.google.com/maps/search/?api=1&query=Great+Otway+National+Park"],
+["15:00","Twelve Apostles & Gibsons Steps","约1小时30分钟；十二门徒岩与吉布森台阶。","https://www.google.com/maps/search/?api=1&query=Twelve+Apostles+Victoria"],
+["16:30","Loch Ard Gorge","约45分钟；洛克阿德峡谷。","https://www.google.com/maps/search/?api=1&query=Loch+Ard+Gorge+Victoria"],
+["18:30","Colac 晚餐","约30分钟；返程途中晚餐。","https://www.google.com/maps/search/?api=1&query=Colac+VIC"],
+["20:30","返回墨尔本","一日游结束，返回市区。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"]
 ]},
-{d:"D9",date:"10/23",week:"周五",city:"MELBOURNE",route:["Crowne Plaza Carlton","Space Hotel","Phillip Island","Space Hotel","Crowne Plaza"],items:[
-["11:00","Space Hotel 集合","380 Russell St, Melbourne。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"],
-["全天/晚间","Phillip Island 一日游","企鹅、彩虹小屋、考拉与袋鼠；含企鹅归巢升级观赏台。",""],
+{d:"D9",date:"10/23",week:"周五",city:"MELBOURNE",route:["Crowne Plaza Carlton","Space Hotel","Brighton Bathing Boxes","Moonlit Sanctuary Wildlife Conservation Park","The Nobbies","Penguin Parade / Penguins Plus","Space Hotel","Crowne Plaza"],items:[
+["11:00","Space Hotel 集合 / 出发","380 Russell St, Melbourne；企鹅归巢、彩虹小屋与野生动物一日游。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"],
+["途中","Brighton Bathing Boxes","约20分钟；布赖顿彩虹小屋。","https://www.google.com/maps/search/?api=1&query=Brighton+Bathing+Boxes"],
+["途中","Moonlit Sanctuary Wildlife Conservation Park","约1小时30分钟；考拉、袋鼠等澳洲野生动物。","https://www.google.com/maps/search/?api=1&query=Moonlit+Sanctuary+Wildlife+Conservation+Park"],
+["途中","The Nobbies","约20分钟；巴斯海峡海景与海岸风光。","https://www.google.com/maps/search/?api=1&query=The+Nobbies+Phillip+Island"],
+["晚间","Penguin Parade / Penguins Plus","约2小时15分钟；企鹅归巢，已升级 Penguins Plus 高级观景台。","https://www.google.com/maps/search/?api=1&query=Phillip+Island+Penguin+Parade"],
+["21:00","返回墨尔本","一日游结束，返回市区。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"]
 ]},
 {d:"D10",date:"10/24",week:"周六",city:"MELBOURNE",route:["Crowne Plaza Carlton","Melbourne City","PARKROYAL Melbourne Airport"],items:[
 ["11:00","Crowne Plaza Melbourne Carlton 退房","墨尔本市内休闲游；具体路线之后再规划。",""],
 ["下午","Melbourne City","暂留为空，不提前塞景点。",""],
-["15:00","PARKROYAL Melbourne Airport 入住","为 10/25 09:00 航班做机场前置。精确地址待补充。",""],
+["15:00","PARKROYAL Melbourne Airport 入住","Melbourne Airport, Arrival Dr, Tullamarine VIC 3045。","https://www.google.com/maps/search/?api=1&query=Melbourne+Airport+Arrival+Dr+Tullamarine+VIC+3045"],
 ]},
 {d:"D11",date:"10/25",week:"周日",city:"MELBOURNE → SHANGHAI",route:["PARKROYAL Melbourne Airport","Melbourne Airport T2","Shanghai"],items:[
 ["09:00","HO1656 起飞 · Melbourne Airport T2","回程航班，16:20 抵达上海。",""],
