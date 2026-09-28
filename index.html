@@ -3,205 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澳大利亚之旅 2026：悉尼 &amp; 墨尔本 11天专属手册</title>
+    <title>2026 悉尼 & 墨尔本私人旅行手册</title>
     <style>
         :root {
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
-            --text-sub: #64748b;
+            --text-muted: #64748b;
             --primary: #0284c7;
             --primary-hover: #0369a1;
             --accent: #f59e0b;
             --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-            --radius: 12px;
+            --tag-bg: #e0f2fe;
+            --tag-text: #0369a1;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-hover: #7dd3fc;
+            --accent: #fbbf24;
+            --border: #334155;
+            --tag-bg: #0369a1;
+            --tag-text: #e0f2fe;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #0284c7, #0369a1);
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 25px;
-        }
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-        h2 {
-            font-size: 18px;
-            color: var(--primary);
-            margin-top: 0;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .todo-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .todo-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 15px;
-            cursor: pointer;
-            padding: 4px 0;
-        }
-        .todo-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            accent-color: var(--primary);
-        }
-        .todo-item input[type="checkbox"]:checked + span {
-            text-decoration: line-through;
-            color: var(--text-sub);
-            opacity: 0.6;
-        }
-        .info-grid {
-            display: grid;
-            gap: 15px;
-        }
-        .info-item {
-            background: var(--bg-color);
-            padding: 12px 16px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-        }
-        .info-item h3 {
-            margin: 0 0 5px 0;
-            font-size: 15px;
-            color: var(--text-main);
-        }
-        .info-item p {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-sub);
-        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding: 16px; max-width: 800px; margin: 0 auto; transition: background 0.3s, color 0.3s; }
+        
+        header { text-align: center; margin-bottom: 24px; padding-top: 12px; }
+        h1 { font-size: 1.5rem; margin-bottom: 4px; }
+        .sub-title { color: var(--text-muted); font-size: 0.9rem; }
+
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow); transition: background 0.3s, border 0.3s; }
+
+        /* 1. 此刻关注卡片 */
+        .countdown-card { text-align: center; background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: #fff; border: none; }
+        .countdown-card .sub-title { color: rgba(255, 255, 255, 0.85); }
+        .countdown-timer { display: flex; justify-content: center; gap: 12px; margin-top: 12px; }
+        .time-box { background: rgba(0, 0, 0, 0.2); padding: 8px 12px; border-radius: 8px; min-width: 60px; }
+        .time-num { font-size: 1.25rem; font-weight: bold; }
+        .time-label { font-size: 0.75rem; opacity: 0.8; }
+
+        /* 2. 地图区 */
+        .map-container { position: relative; width: 100%; height: 180px; background: #e2e8f0; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        [data-theme="dark"] .map-container { background: #334155; }
+        .svg-map { width: 100%; height: 100%; }
+
+        /* 通用组件 */
+        h2 { font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid var(--border); padding-bottom: 6px; }
+        .tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 8px; }
+        
+        /* 预订项目卡片 */
+        .booking-grid { display: grid; gap: 12px; }
+        .booking-item { background: var(--bg-color); border: 1px solid var(--border); padding: 12px; border-radius: 8px; font-size: 0.9rem; }
+        .booking-item strong { display: block; margin-bottom: 4px; color: var(--primary); }
+
+        /* 逐日行程 */
+        .day-block { border-left: 3px solid var(--primary); padding-left: 12px; margin-bottom: 16px; }
+        .day-title { font-weight: bold; font-size: 1rem; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+        .day-content { font-size: 0.9rem; color: var(--text-muted); }
+        .nav-btn { display: inline-block; margin-top: 6px; background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 500; }
+        .nav-btn:hover { background: var(--primary-hover); }
+        
+        .interactive-task { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; font-size: 0.9rem; color: var(--text-main); }
+        .interactive-task input[type="checkbox"] { margin-top: 4px; accent-color: var(--primary); width: 16px; height: 16px; }
+
+        /* 待办清单 */
+        ul.todo-list { padding-left: 20px; font-size: 0.9rem; color: var(--text-main); }
+        ul.todo-list li { margin-bottom: 6px; }
+
+        /* 实用贴士 */
+        .tips-box { font-size: 0.85rem; color: var(--text-muted); }
+        .tips-box p { margin-bottom: 6px; }
+
+        .collapsible-content { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); }
+        .toggle-map-link { font-size: 0.8rem; color: var(--primary); cursor: pointer; text-decoration: underline; background: none; border: none; padding: 0; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🇦🇺SYD&MEL by sawa</h1>
-            <p>🇦🇺SYD&MEL by sawa</p>
-        </header>
 
-        <!-- 航班与机票信息 -->
-        <div class="card">
-            <h2>✈️ 航班与机票信息</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3>去程航班</h3>
-                    <p>国泰航空 / 吉祥航空等已确定基酒航班信息（可按需补充具体航班号）</p>
-                </div>
-                <div class="info-item">
-                    <h3>回程航班</h3>
-                    <p>墨尔本离境，预计第 11 天返程抵达国内</p>
-                </div>
+    <header>
+        <h1>🇦🇺 悉尼 & 墨尔本 11天之旅</h1>
+        <div class="sub-title">2026年10月15日 - 10月25日 · 个人定制手册</div>
+    </header>
+
+    <!-- 1. 此刻关注卡片 -->
+    <section class="card countdown-card">
+        <div class="sub-title" id="next-event-title">距离行程开始还有</div>
+        <div style="font-size: 1.1rem; font-weight: bold; margin: 4px 0;" id="next-event-name">悉尼之旅倒计时</div>
+        <div class="countdown-timer">
+            <div class="time-box"><div class="time-num" id="days">00</div><div class="time-label">天</div></div>
+            <div class="time-box"><div class="time-num" id="hours">00</div><div class="time-label">时</div></div>
+            <div class="time-box"><div class="time-num" id="mins">00</div><div class="time-label">分</div></div>
+            <div class="time-box"><div class="time-num" id="secs">00</div><div class="time-label">秒</div></div>
+        </div>
+    </section>
+
+    <!-- 2. 行程总览地图 (手绘SVG示意) -->
+    <section class="card">
+        <h2>🗺️ 行程总览地图</h2>
+        <div class="map-container">
+            <svg class="svg-map" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- 背景模拟手绘网格与陆地连线 -->
+                <rect width="400" height="200" fill="none"/>
+                <path d="M 50,150 Q 150,50 220,120 T 350,80" fill="none" stroke="var(--primary)" stroke-width="3" stroke-dasharray="6,6"/>
+                <!-- 悉尼节点 -->
+                <circle cx="100" cy="110" r="8" fill="var(--accent)"/>
+                <text x="100" y="95" font-size="12" fill="var(--text-main)" text-anchor="middle" font-weight="bold">悉尼 (10.15-21)</text>
+                <!-- 墨尔本节点 -->
+                <circle cx="280" cy="100" r="8" fill="var(--accent)"/>
+                <text x="280" y="85" font-size="12" fill="var(--text-main)" text-anchor="middle" font-weight="bold">墨尔本 (10.21-25)</text>
+            </svg>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 8px;">提示：点击下方逐日行程中的导航按钮可直达 Google 地图</div>
+    </section>
+
+    <!-- 3. 已确认的酒店/门票/一日团汇总 -->
+    <section class="card">
+        <h2>🏨 已确认住宿与一日游</h2>
+        <div class="booking-grid">
+            <div class="booking-item">
+                <span class="tag">悉尼住宿 1</span>
+                <strong>YHA Sydney Harbour</strong>
+                <div>📅 10月15日 14:00 - 10月18日 10:00</div>
+                <div>📍 22 Cumberland St, The Rocks NSW 2000</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=YHA+Sydney+Harbour" target="_blank">Google 导航</a>
+            </div>
+            <div class="booking-item">
+                <span class="tag">悉尼住宿 2</span>
+                <strong>lyf Bondi Junction Sydney</strong>
+                <div>📅 10月18日 14:00 - 10月20日 10:00</div>
+                <div>📍 5-11 Hollywood Avenue, Bondi Junction NSW 2022</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=lyf+Bondi+Junction+Sydney" target="_blank">Google 导航</a>
+            </div>
+            <div class="booking-item">
+                <span class="tag">悉尼住宿 3</span>
+                <strong>YHA Sydney Harbour (返住)</strong>
+                <div>📅 10月20日 14:00 - 10月21日 10:00</div>
+                <div>📍 22 Cumberland St, The Rocks NSW 2000</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=YHA+Sydney+Harbour" target="_blank">Google 导航</a>
+            </div>
+            <div class="booking-item">
+                <span class="tag">墨尔本住宿 1</span>
+                <strong>Crowne Plaza Melbourne Carlton By IHG</strong>
+                <div>📅 10月21日 15:00 - 10月24日 11:00</div>
+                <div>📍 墨尔本卡尔顿区</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Crowne+Plaza+Melbourne+Carlton" target="_blank">Google 导航</a>
+            </div>
+            <div class="booking-item">
+                <span class="tag">墨尔本住宿 2</span>
+                <strong>PARKROYAL Melbourne Airport</strong>
+                <div>📅 10月24日 15:00 - 10月25日 11:00</div>
+                <div>📍 墨尔本机场</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=PARKROYAL+Melbourne+Airport" target="_blank">Google 导航</a>
+            </div>
+            <div class="booking-item">
+                <span class="tag">Klook 一日游 1</span>
+                <strong>大洋路 & 十二门徒岩一日游 (Go West Tours)</strong>
+                <div>📅 10月22日 07:00 出发</div>
+                <div>📍 集合点：Space Hotel (380 Russell St, Melbourne)</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Space+Hotel+Melbourne" target="_blank">导航至集合点</a>
+            </div>
+            <div class="booking-item">
+                <span class="tag">Klook 一日游 2</span>
+                <strong>菲利普岛企鹅、彩虹小屋、考拉与袋鼠一日游 (企鹅归巢升级观赏台)</strong>
+                <div>📅 10月23日 11:00 出发</div>
+                <div>📍 集合点：Space Hotel (380 Russell St, Melbourne)</div>
+                <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Space+Hotel+Melbourne" target="_blank">导航至集合点</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 逐日行程 -->
+    <section class="card">
+        <h2>📅 逐日行程与互动复选</h2>
+
+        <!-- Day 1 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 1 天 · 10月15日 (周三)</span>
+                <button class="toggle-map-link" onclick="toggleMap('map-d1')">路线地图</button>
+            </div>
+            <div class="day-content">
+                10:35 到达悉尼机场 (AEDT/UTC+11) -> 12:00 Circular Quay 南半球火车站拍照打卡 -> 12:20 抵达 The Rocks YHA Check-in & 寄行李 -> 下午：悉尼天文台/天文台山 (Sydney Observatory) -> 悉尼歌剧院 (Opera House) -> 皇家植物园 (麦考利夫人椅子 Mrs Macquarie's Chair)。
+            </div>
+            <div id="map-d1" class="collapsible-content">
+                <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Sydney+Airport&destination=YHA+Sydney+Harbour&waypoints=Circular+Quay|Sydney+Opera+House|Mrs+Macquaries+Chair" target="_blank">一键打开全天多点导航</a>
+            </div>
+            <div style="margin-top: 8px;">
+                <label class="interactive-task"><input type="checkbox"> 办好手机 eSIM / 机场领取交通卡 (Opal Card)</label>
             </div>
         </div>
 
-        <!-- 酒店住宿安排 -->
-        <div class="card">
-            <h2>🏨 酒店住宿安排</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3>悉尼酒店</h3>
-                    <p>已预订市中心核心区酒店，方便出行与观光</p>
-                </div>
-                <div class="info-item">
-                    <h3>墨尔本酒店</h3>
-                    <p>已预订市区特色酒店，方便衔接大洋路与企鹅岛行程</p>
-                </div>
+        <!-- Day 2 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 2 天 · 10月16日 (周四)</span>
+                <button class="toggle-map-link" onclick="toggleMap('map-d2')">路线地图</button>
+            </div>
+            <div class="day-content">
+                海港观鲸 (Harbour Whale Watching) + 塔龙加动物园 (Taronga Zoo)。
+            </div>
+            <div id="map-d2" class="collapsible-content">
+                <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Circular+Quay&destination=Taronga+Zoo" target="_blank">一键打开全天多点导航</a>
+            </div>
+            <div style="margin-top: 8px;">
+                <label class="interactive-task"><input type="checkbox"> 预定观鲸船票（如未包含）</label>
+                <label class="interactive-task"><input type="checkbox"> 预定塔龙加动物园门票</label>
             </div>
         </div>
 
-        <!-- 已定特色跟团行程 -->
-        <div class="card">
-            <h2>🌟 已定特色跟团游</h2>
-            <ul>
-                <li><strong>大洋路一日游（墨尔本出发）：</strong> 欣赏壮丽的海岸线、十二门徒岩等自然奇观。</li>
-                <li><strong>菲利普岛企鹅岛一日游（墨尔本出发）：</strong> 观赏萌态可掬的小蓝企鹅归巢。</li>
-            </ul>
+        <!-- Day 3 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 3 天 · 10月17日 (周五)</span>
+                <button class="toggle-map-link" onclick="toggleMap('map-d3')">路线地图</button>
+            </div>
+            <div class="day-content">
+                Spit to Manly 经典10km海岸线徒步：YHA 乘公交至 Spit Bridge 开始徒步 → Clontarf → Grotto Point (看灯塔与原住民岩刻遗址) → Dobroyd Head → Reef Beach → Fairlight → Manly 码头坐 F1 渡轮返回 Circular Quay。
+            </div>
+            <div id="map-d3" class="collapsible-content">
+                <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Spit+Bridge&destination=Manly+Wharf&waypoints=Grotto+Point|Fairlight" target="_blank">一键打开全天多点导航</a>
+            </div>
         </div>
 
-        <!-- 行前待办清单 (带交互复选框) -->
-        <div class="card">
-            <h2>📋 行前待办清单</h2>
-            <ul class="todo-list">
-                <label class="todo-item">
-                    <input type="checkbox">
-                    <span>办理澳大利亚旅游签证（ETA / Subclass 600）</span>
-                </label>
-                <label class="todo-item">
-                    <input type="checkbox">
-                    <span>购买澳大利亚当地流量卡（eSIM 或实体电话卡）</span>
-                </label>
-                <label class="todo-item">
-                    <input type="checkbox">
-                    <span>兑换少量澳元现金备用</span>
-                </label>
-                <label class="todo-item">
-                    <input type="checkbox">
-                    <span>准备英标转换插头（澳洲三孔插座）</span>
-                </label>
-                <label class="todo-item">
-                    <input type="checkbox">
-                    <span>确认国际漫游或开通境外支付绑卡</span>
-                </label>
-            </ul>
+        <!-- Day 4 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 4 天 · 10月18日 (周日)</span>
+            </div>
+            <div class="day-content">
+                10:00 前从 YHA 退房 -> 前往 Bondi Junction 寄行李 -> 游玩 Bondi Beach 黄金海岸 -> 步行 Tamarama / Bronte 滨海步道 -> 14:00 入住 lyf Bondi Junction Sydney。
+            </div>
+            <div style="margin-top: 8px;">
+                <label class="interactive-task"><input type="checkbox"> 确认酒店更换衔接无误</label>
+            </div>
         </div>
 
-        <!-- 实用贴士 -->
-        <div class="card">
-            <h2>💡 实用贴士</h2>
-            <ul>
-                <li><strong>时区提示：</strong> 10月中旬澳大利亚东部实行夏令时（AEDT，UTC+11），比北京时间快 3 小时。</li>
-                <li><strong>交通出行：</strong> 悉尼与墨尔本市区公共交通普遍支持感应式信用卡/手机 PAY（OPTL/Myki），进出闸机直接刷卡即可，无需单独购买交通卡。</li>
-                <li><strong>日夜温差：</strong> 10月澳洲正值春季，早晚较凉，沿海风大（尤其大洋路及菲利普岛观企鹅），请务必携带防风外套及保暖衣物。</li>
-            </ul>
+        <!-- Day 5 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 5 天 · 10月19日 (周一)</span>
+            </div>
+            <div class="day-content">
+                Kiama 凯阿马（看天然喷水洞 Blowhole） + Kangaroo Valley 袋鼠谷自然一日游。
+            </div>
         </div>
-    </div>
+
+        <!-- Day 6 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 6 天 · 10月20日 (周二)</span>
+            </div>
+            <div class="day-content">
+                下午退房返回 The Rocks YHA 入住。City 漫步：Surry Hills 艺术街区 -> 悉尼大学 (Sydney University) 哥特风校园 -> 海德公园 (Hyde Park) -> 圣玛丽大教堂 (St Mary's Cathedral)。
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 7 天 · 10月21日 (周三)</span>
+            </div>
+            <div class="day-content">
+                09:30 航班飞往墨尔本 (AEDT/AEST 时区注意) -> 抵达后入住 Crowne Plaza Melbourne Carlton。
+            </div>
+            <div style="margin-top: 8px;">
+                <label class="interactive-task"><input type="checkbox"> 预定悉尼飞墨尔本机票</label>
+            </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 8 天 · 10月22日 (周四)</span>
+            </div>
+            <div class="day-content">
+                <strong>07:00</strong> 参加大洋路 & 十二门徒岩一日游。<br>
+                📍 <strong>重要提示</strong>：集合点在 <strong>Space Hotel</strong>，请务必于 06:45 前从酒店步行/电车赶到集合点！
+            </div>
+        </div>
+
+        <!-- Day 9 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 9 天 · 10月23日 (周五)</span>
+            </div>
+            <div class="day-content">
+                <strong>11:00</strong> 参加菲利普岛企鹅、彩虹小屋、考拉与袋鼠一日游（含企鹅归巢升级观赏台）。<br>
+                📍 集合点：<strong>Space Hotel</strong>（出发时间较充裕，但请提前 10 分钟到场）。
+            </div>
+        </div>
+
+        <!-- Day 10 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 10 天 · 10月24日 (周六)</span>
+            </div>
+            <div class="day-content">
+                墨尔本市内休闲游 -> 11:00 酒店退房 -> 下午入住墨尔本机场宾乐雅酒店 (PARKROYAL Melbourne Airport)，为次日返程做准备。
+            </div>
+        </div>
+
+        <!-- Day 11 -->
+        <div class="day-block">
+            <div class="day-title">
+                <span>第 11 天 · 10月25日 (周日)</span>
+            </div>
+            <div class="day-content">
+                结束愉快的澳洲之旅，从墨尔本机场搭乘航班回程。
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 待办清单 -->
+    <section class="card">
+        <h2>📝 待办清单 (待办完由我帮您更新)</h2>
+        <ul class="todo-list">
+            <li>购买 10月21日 悉尼飞墨尔本机票</li>
+            <li>办理澳大利亚旅游签证 (Subclass 600)</li>
+            <li>确认购买悉尼歌剧院 / 观鲸船票</li>
+            <li>开通国际漫游或购买澳洲本地流量 eSIM</li>
+            <li>准备英标八字转换插头与防晒霜</li>
+        </ul>
+    </section>
+
+    <!-- 6. 实用贴士 -->
+    <section class="card">
+        <h2>💡 实用贴士</h2>
+        <div class="tips-box">
+            <p><strong>🕒 时区提醒：</strong>10月中旬澳大利亚正实行夏令时 (AEDT, UTC+11)，请注意手机会自动调整时区。墨尔本与悉尼同属东部夏令时区。</p>
+            <p><strong>🚗 交通出行：</strong>悉尼公共交通可直接刷感应式信用卡/Apple Pay进出站；墨尔本市内核心区有免费电车区 (Free Tram Zone)，超出需刷 myki 卡。</p>
+            <p><strong>⚠️ 行程风险提示：</strong>悉尼行程中频繁更换了 3 次住宿（The Rocks -> Bondi -> The Rocks），请务必合理规划行李，轻装出行或寄存背包。</p>
+        </div>
+    </section>
+
+    <script>
+        // 自动夜间模式切换逻辑 (根据当地时间或系统设置)
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        // 展开/折叠地图函数
+        function toggleMap(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'block') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = 'block';
+            }
+        }
+
+        // 倒计时逻辑 (带精确时区计算，锚定 2026年10月15日 10:35 悉尼时间 AEDT)
+        // 悉尼 10月中旬为 UTC+11
+        const targetDate = new Date('2026-10-15T10:35:00+11:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('next-event-title').innerText = '当前状态';
+                document.getElementById('next-event-name').innerText = '澳洲之旅正在进行中！';
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('mins').innerText = '00';
+                document.getElementById('secs').innerText = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('mins').innerText = String(mins).padStart(2, '0');
+            document.getElementById('secs').innerText = String(secs).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
