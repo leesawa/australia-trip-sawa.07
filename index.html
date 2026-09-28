@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f6f1e8">
-<title>SYDNEY · MELBOURNE｜2026.10.14-25</title>
+<title>SYDNEY · MELBOURNE 2026｜旅行手册</title>
 <style>
 :root{
   --bg:#f6f1e8;--card:#fffdf8;--ink:#20252a;--muted:#70777d;--line:#ded8cd;
@@ -119,9 +119,9 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
         <text x="770" y="590" class="mapcity">MELBOURNE</text>
 
         <!-- Sydney daily routes -->
-        <path class="route" stroke="#0e6f6d" d="M170 150 L240 170 L275 210 L225 245"/>
-        <circle class="daydot" fill="#0e6f6d" cx="170" cy="150" r="8"/><circle class="daydot" fill="#0e6f6d" cx="240" cy="170" r="8"/><circle class="daydot" fill="#0e6f6d" cx="275" cy="210" r="8"/><circle class="daydot" fill="#0e6f6d" cx="225" cy="245" r="8"/>
-        <text x="150" y="140" class="maplabel">D1</text><text x="245" y="158" class="maplabel">Opera</text><text x="278" y="205" class="maplabel">RBG</text><text x="178" y="270" class="maplabel">YHA</text>
+        <path class="route" stroke="#0e6f6d" d="M170 150 L205 160 L240 170 L275 210 L250 230 L225 245"/>
+        <circle class="daydot" fill="#0e6f6d" cx="170" cy="150" r="8"/><circle class="daydot" fill="#0e6f6d" cx="205" cy="160" r="8"/><circle class="daydot" fill="#0e6f6d" cx="240" cy="170" r="8"/><circle class="daydot" fill="#0e6f6d" cx="275" cy="210" r="8"/><circle class="daydot" fill="#0e6f6d" cx="250" cy="230" r="8"/><circle class="daydot" fill="#0e6f6d" cx="225" cy="245" r="8"/>
+        <text x="145" y="140" class="maplabel">D1</text><text x="192" y="150" class="maplabel">Observatory</text><text x="245" y="158" class="maplabel">Opera House</text><text x="280" y="205" class="maplabel">RBG</text><text x="255" y="247" class="maplabel">Mrs Macquarie's Chair</text><text x="178" y="270" class="maplabel">YHA</text>
 
         <path class="route" stroke="#d65b45" d="M180 150 C150 115 115 135 105 185 S135 250 195 235"/>
         <circle class="daydot" fill="#d65b45" cx="180" cy="150" r="7"/><circle class="daydot" fill="#d65b45" cx="105" cy="185" r="7"/><circle class="daydot" fill="#d65b45" cx="195" cy="235" r="7"/>
@@ -228,11 +228,14 @@ const events = [
 ];
 
 const days = [
-{d:"D1",date:"10/15",week:"周四",city:"SYDNEY",route:["Sydney Airport","Circular Quay","YHA Sydney Harbour","Sydney Observatory","Sydney Opera House","Royal Botanic Garden"],items:[
+{d:"D1",date:"10/15",week:"周四",city:"SYDNEY",route:["Sydney Airport","Circular Quay","YHA Sydney Harbour","Sydney Observatory","Sydney Opera House","Royal Botanic Garden","Mrs Macquarie's Chair"],items:[
 ["10:35","抵达 Sydney Airport","入境、取行李；之后前往市区。",""],
 ["12:00","Circular Quay","南半球火车站拍照打卡。",""],
 ["12:20","YHA Sydney Harbour","前往酒店寄存行李；14:00 正式入住。","https://www.google.com/maps/search/?api=1&query=22+Cumberland+St+The+Rocks+NSW+2000"],
-["下午","Sydney Observatory → Opera House → Royal Botanic Garden","悉尼天文台 / 天文台山 → 悉尼歌剧院 → 皇家植物园（麦考利夫人椅）。",""],
+["下午","Sydney Observatory","悉尼天文台 / 天文台山。","https://www.google.com/maps/search/?api=1&query=Sydney+Observatory+Sydney"],
+["下午","Sydney Opera House","悉尼歌剧院。","https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House"],
+["下午","Royal Botanic Garden","皇家植物园。","https://www.google.com/maps/search/?api=1&query=Royal+Botanic+Garden+Sydney"],
+["下午","Mrs Macquarie's Chair","麦考利夫人椅。","https://www.google.com/maps/search/?api=1&query=Mrs+Macquarie's+Chair+Sydney"],
 ]},
 {d:"D2",date:"10/16",week:"周五",city:"SYDNEY",route:["YHA","Harbour Whale Watching","Taronga Zoo","YHA"],items:[
 ["上午","Harbour Whale Watching","观鲸船 + Taronga Zoo；具体船班/动物园时间以已购票据为准。",""],
@@ -251,7 +254,8 @@ const days = [
 {d:"D4",date:"10/18",week:"周日",city:"SYDNEY",route:["YHA","Bondi Junction","Bondi Beach","Tamarama","Bronte","lyf Bondi Junction"],items:[
 ["10:00","YHA Sydney Harbour 退房","寄存/携带行李前往 Bondi Junction。", "https://www.google.com/maps/search/?api=1&query=22+Cumberland+St+The+Rocks+NSW+2000"],
 ["上午","Bondi Beach","Bondi Beach 海滩区域。","https://www.google.com/maps/search/?api=1&query=Bondi+Beach+Sydney"],
-["中午","Bondi → Tamarama → Bronte","滨海步道。","https://www.google.com/maps/search/?api=1&query=Tamarama+Beach+Sydney"],
+["中午","Tamarama Beach","滨海步道中段。","https://www.google.com/maps/search/?api=1&query=Tamarama+Beach+Sydney"],
+["下午","Bronte Beach","滨海步道后段。","https://www.google.com/maps/search/?api=1&query=Bronte+Beach+Sydney"],
 ["14:00","lyf Bondi Junction Sydney 入住","5–11 Hollywood Avenue, Bondi Junction NSW 2022。","https://www.google.com/maps/search/?api=1&query=5-11+Hollywood+Avenue+Bondi+Junction+NSW+2022"],
 ]},
 {d:"D5",date:"10/19",week:"周一",city:"SYDNEY",route:["Bondi Junction","Kiama Blowhole","Kangaroo Valley","Bondi Junction"],items:[
