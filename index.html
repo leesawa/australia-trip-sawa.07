@@ -38,11 +38,11 @@ body.night .mapbox{background:#182126}
 svg{display:block;width:100%;height:auto}
 .route{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
 .daydot{stroke:var(--card);stroke-width:3}
-.maplabel{font-size:12px;font-weight:700;fill:#263038}.maplink{cursor:pointer}
+.maplabel{font-size:12px;font-weight:700;fill:#263038;paint-order:stroke;stroke:var(--card);stroke-width:5px;stroke-linejoin:round}.maplink{cursor:pointer}
 body.night .maplabel{fill:#e8eeee}
 .mapcity{font-size:15px;font-weight:900;fill:#1b6b69}
 body.night .mapcity{fill:#8fd3cf}
-.waypoints{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.waypoints a{font-size:11px;text-decoration:none;padding:5px 8px;border:1px solid var(--line);border-radius:999px;background:var(--card)}.waypoints a:hover{border-color:var(--accent);color:var(--accent)}
+.waypoints{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.overview-index{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:10px}.overview-index span{font-size:11px;padding:7px 9px;border:1px solid var(--line);border-radius:10px;background:var(--card)}.weather-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.weather-card{border:1px solid var(--line);border-radius:16px;padding:13px;background:var(--bg)}.weather-card h3{margin:0 0 4px;font-size:16px}.weather-temp{font-size:22px;font-weight:900}.weather-note{font-size:11px;color:var(--muted);margin-top:4px}.weather-source{font-size:10px;color:var(--muted);margin-top:10px}@media(max-width:700px){.weather-grid{grid-template-columns:1fr}.overview-index{grid-template-columns:1fr}}.waypoints a{font-size:11px;text-decoration:none;padding:5px 8px;border:1px solid var(--line);border-radius:999px;background:var(--card)}.waypoints a:hover{border-color:var(--accent);color:var(--accent)}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
 .legend span{font-size:11px;padding:4px 8px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -113,62 +113,61 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
   <div class="section-title"><h2>行程总览地图</h2><span class="badge">手绘示意 · 非比例地图</span></div>
   <section class="card">
     <div class="mapbox">
-      <svg viewBox="0 0 1000 640" role="img" aria-label="Sydney and Melbourne daily route schematic">
-        <path d="M80 110 C210 50 310 95 420 145 S610 210 720 270 S830 380 920 520" fill="none" stroke="#b7afa0" stroke-width="3" stroke-dasharray="8 12"/>
-        <text x="65" y="80" class="mapcity">SYDNEY</text>
-        <text x="770" y="590" class="mapcity">MELBOURNE</text>
+      <svg viewBox="0 0 1000 640" role="img" aria-label="Sydney and Melbourne daily route overview">
+        <path d="M80 110 C210 50 310 95 420 145 S610 210 720 270 S830 380 920 520" fill="none" stroke="#b7afa0" stroke-width="3" stroke-dasharray="8 12" opacity=".7"/>
+        <text x="70" y="70" class="mapcity">SYDNEY</text>
+        <text x="785" y="585" class="mapcity">MELBOURNE</text>
 
-        <!-- Sydney daily routes -->
         <path class="route" stroke="#0e6f6d" d="M170 150 L205 160 L240 170 L275 210 L250 230 L225 245"/>
         <circle class="daydot" fill="#0e6f6d" cx="170" cy="150" r="8"/><circle class="daydot" fill="#0e6f6d" cx="205" cy="160" r="8"/><circle class="daydot" fill="#0e6f6d" cx="240" cy="170" r="8"/><circle class="daydot" fill="#0e6f6d" cx="275" cy="210" r="8"/><circle class="daydot" fill="#0e6f6d" cx="250" cy="230" r="8"/><circle class="daydot" fill="#0e6f6d" cx="225" cy="245" r="8"/>
-        <text x="112" y="116" class="maplabel">D1</text><text x="192" y="150" class="maplabel">Observatory</text><text x="245" y="158" class="maplabel">Opera House</text><text x="280" y="205" class="maplabel">RBG</text><text x="255" y="247" class="maplabel">Mrs Macquarie's Chair</text><text x="178" y="270" class="maplabel">YHA</text>
-
+        <text x="125" y="135" class="maplabel">D1</text>
+        <text x="105" y="185" class="maplabel">D2</text>
         <path class="route" stroke="#d65b45" d="M180 150 C150 115 115 135 105 185 S135 250 195 235"/>
         <circle class="daydot" fill="#d65b45" cx="180" cy="150" r="7"/><circle class="daydot" fill="#d65b45" cx="105" cy="185" r="7"/><circle class="daydot" fill="#d65b45" cx="195" cy="235" r="7"/>
-        <text x="70" y="180" class="maplabel">D2</text><text x="72" y="202" class="maplabel">Taronga</text>
-
+        <text x="105" y="295" class="maplabel">D3</text>
         <path class="route" stroke="#b8862f" d="M175 250 C130 280 125 330 175 350 S260 335 305 305 S345 260 315 235"/>
         <circle class="daydot" fill="#b8862f" cx="175" cy="250" r="7"/><circle class="daydot" fill="#b8862f" cx="315" cy="235" r="7"/>
-        <text x="115" y="310" class="maplabel">D3 Spit → Manly</text>
-
+        <text x="285" y="350" class="maplabel">D4</text>
         <path class="route" stroke="#7a5aa6" d="M205 250 C330 290 360 360 400 405"/>
         <circle class="daydot" fill="#7a5aa6" cx="205" cy="250" r="7"/><circle class="daydot" fill="#7a5aa6" cx="400" cy="405" r="7"/>
-        <text x="285" y="355" class="maplabel">D4 Bondi</text>
-
+        <text x="310" y="470" class="maplabel">D5</text>
         <path class="route" stroke="#2d7cba" d="M400 405 C350 455 320 500 380 540 S470 535 500 490"/>
         <circle class="daydot" fill="#2d7cba" cx="400" cy="405" r="7"/><circle class="daydot" fill="#2d7cba" cx="500" cy="490" r="7"/>
-        <text x="325" y="530" class="maplabel">D5 Kiama / Kangaroo Valley</text>
-
+        <text x="250" y="385" class="maplabel">D6</text>
         <path class="route" stroke="#4b8a55" d="M400 405 C350 360 305 330 275 300 S240 260 205 250"/>
         <circle class="daydot" fill="#4b8a55" cx="205" cy="250" r="7"/><circle class="daydot" fill="#4b8a55" cx="330" cy="340" r="7"/>
-        <text x="255" y="325" class="maplabel">D6 City walk</text>
 
-        <!-- Intercity -->
         <path class="route" stroke="#222" stroke-dasharray="9 9" d="M330 340 C500 360 650 430 820 500"/>
         <circle class="daydot" fill="#222" cx="330" cy="340" r="7"/><circle class="daydot" fill="#222" cx="820" cy="500" r="7"/>
-        <text x="555" y="405" class="maplabel">D7 ✈ SYD → MEL</text>
+        <text x="520" y="390" class="maplabel">D7 · flight</text>
 
-        <!-- Melbourne daily routes -->
         <path class="route" stroke="#e07a35" d="M820 500 C760 470 730 430 765 400 S850 410 875 450"/>
         <circle class="daydot" fill="#e07a35" cx="820" cy="500" r="7"/><circle class="daydot" fill="#e07a35" cx="875" cy="450" r="7"/>
-        <text x="745" y="385" class="maplabel">D8 Great Ocean Road</text>
-
+        <text x="730" y="370" class="maplabel">D8</text>
         <path class="route" stroke="#c34c75" d="M820 500 C875 515 910 475 930 425 S900 375 860 395"/>
         <circle class="daydot" fill="#c34c75" cx="820" cy="500" r="7"/><circle class="daydot" fill="#c34c75" cx="860" cy="395" r="7"/>
-        <text x="885" y="350" class="maplabel">D9 Phillip Island</text>
-
+        <text x="900" y="340" class="maplabel">D9</text>
         <path class="route" stroke="#6d7c87" d="M820 500 C850 525 900 535 930 550"/>
         <circle class="daydot" fill="#6d7c87" cx="930" cy="550" r="7"/>
-        <text x="840" y="570" class="maplabel">D10 Airport</text>
-        <text x="920" y="535" class="maplabel">D11 ✈</text>
+        <text x="875" y="575" class="maplabel">D10</text>
+        <text x="925" y="535" class="maplabel">D11</text>
 
-        <text x="125" y="610" class="maplabel">YHA Sydney Harbour · 22 Cumberland St</text>
-        <text x="695" y="620" class="maplabel">PARKROYAL Melbourne Airport · 10/24–10/25</text>
+        <text x="28" y="615" class="maplabel" opacity=".7">总览图只显示每日路线方向；具体地点请展开当天路线地图查看</text>
       </svg>
     </div>
-    <div class="legend">
-      <span>D1 青</span><span>D2 红</span><span>D3 金</span><span>D4 紫</span><span>D5 蓝</span><span>D6 绿</span><span>D7 黑</span><span>D8 橙</span><span>D9 粉</span><span>D10 灰</span>
+    <div class="overview-index">
+      <span><b>D1</b> Harbour：Observatory · Opera House · Royal Botanic Garden · Mrs Macquarie's Chair</span>
+      <span><b>D2</b> Harbour Whale Watching · Taronga Zoo</span>
+      <span><b>D3</b> Spit Bridge · Clontarf · Grotto Point · Manly</span>
+      <span><b>D4</b> Bondi Beach · Tamarama · Bronte</span>
+      <span><b>D5</b> Kiama Blowhole · Kangaroo Valley</span>
+      <span><b>D6</b> Surry Hills · University of Sydney · Hyde Park · St Mary's Cathedral</span>
+      <span><b>D7</b> Sydney → Melbourne</span>
+      <span><b>D8</b> Torquay · Memorial Arch · Otway · Twelve Apostles · Loch Ard Gorge</span>
+      <span><b>D9</b> Brighton · Moonlit Sanctuary · The Nobbies · Penguin Parade</span>
+      <span><b>D10–11</b> Melbourne · Airport · Shanghai</span>
     </div>
+    <div class="legend"><span>D1 青</span><span>D2 红</span><span>D3 金</span><span>D4 紫</span><span>D5 蓝</span><span>D6 绿</span><span>D7 黑</span><span>D8 橙</span><span>D9 粉</span><span>D10 灰</span></div>
   </section>
 
   <div class="section-title"><h2>已确认 / 已给出的预订</h2><span class="badge">敏感信息已排除</span></div>
@@ -183,6 +182,17 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:11px;text-align:center}
     <div class="booking"><div class="icon">🚌</div><div><h3>大洋路 & 十二门徒岩一日游</h3><p>10/22 · 07:00 出发</p><p>集合：Space Hotel, 380 Russell St, Melbourne</p><a href="https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne" target="_blank">打开集合点 →</a></div></div>
     <div class="booking"><div class="icon">🐧</div><div><h3>Phillip Island 一日游</h3><p>10/23 · 11:00 出发</p><p>集合：Space Hotel, 380 Russell St, Melbourne</p><a href="https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne" target="_blank">打开集合点 →</a></div></div>
     <div class="booking"><div class="icon">✈</div><div><h3>HO1656 · 墨尔本 → 上海</h3><p>10/25 09:00 · Melbourne Airport T2</p><p>16:20 抵达上海</p></div></div>
+  </section>
+
+  <div class="section-title"><h2>上海 · 悉尼 · 墨尔本天气</h2><span class="badge">10 月出行参考</span></div>
+  <section class="card">
+    <div class="weather-grid">
+      <div class="weather-card"><h3>🇨🇳 上海</h3><div class="weather-temp">约 15–24°C</div><div class="weather-note">10 月属于秋季，早晚凉、白天相对温和；出发日可再看临近预报。</div></div>
+      <div class="weather-card"><h3>🇦🇺 悉尼</h3><div class="weather-temp">约 13–23°C</div><div class="weather-note">10 月平均最高约 23°C、最低约 13°C；海边和早晚建议带轻薄外套。</div></div>
+      <div class="weather-card"><h3>🇦🇺 墨尔本</h3><div class="weather-temp">约 9–20°C</div><div class="weather-note">春季温差和天气变化更明显，10 月偏湿；一日游尤其建议分层穿衣并备轻便雨具。</div></div>
+    </div>
+    <div class="tip" style="margin-top:12px"><b>这次怎么准备：</b>不要按“澳洲春天=暖和”来带衣服。悉尼重点应对海风和早晚温差；墨尔本尤其要准备可叠穿的中间层。D3 徒步、D8 大洋路、D9 菲利普岛都建议随身带一件轻薄防风/防雨外层。</div>
+    <div class="weather-source">气候参考：Tourism Australia / Australian Bureau of Meteorology。实际 2026/10 天气请在出发前 3–7 天重新查看预报。citeturn0search0turn0search3turn0search1</div>
   </section>
 
   <div class="section-title"><h2>逐日行程</h2><span class="badge">点击路线展开地图</span></div>
@@ -287,16 +297,16 @@ const days = [
 ]},
 {d:"D9",date:"10/23",week:"周五",city:"MELBOURNE",route:["Crowne Plaza Carlton","Space Hotel","Brighton Bathing Boxes","Moonlit Sanctuary Wildlife Conservation Park","The Nobbies","Penguin Parade / Penguins Plus","Space Hotel","Crowne Plaza"],items:[
 ["11:00","Space Hotel 集合 / 出发","380 Russell St, Melbourne；企鹅归巢、彩虹小屋与野生动物一日游。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"],
-["11:50","Brighton Bathing Boxes","约20分钟；布赖顿彩虹小屋。","https://www.google.com/maps/search/?api=1&query=Brighton+Bathing+Boxes"],
-["13:00","Moonlit Sanctuary Wildlife Conservation Park","约1小时30分钟；考拉、袋鼠等澳洲野生动物。","https://www.google.com/maps/search/?api=1&query=Moonlit+Sanctuary+Wildlife+Conservation+Park"],
-["16:00","The Nobbies","约20分钟；巴斯海峡海景与海岸风光。","https://www.google.com/maps/search/?api=1&query=The+Nobbies+Phillip+Island"],
-["16:50","Penguin Parade / Penguins Plus","约2小时15分钟；企鹅归巢，已升级 Penguins Plus 高级观景台。","https://www.google.com/maps/search/?api=1&query=Phillip+Island+Penguin+Parade"],
+["途中","Brighton Bathing Boxes","约20分钟；布赖顿彩虹小屋。","https://www.google.com/maps/search/?api=1&query=Brighton+Bathing+Boxes"],
+["途中","Moonlit Sanctuary Wildlife Conservation Park","约1小时30分钟；考拉、袋鼠等澳洲野生动物。","https://www.google.com/maps/search/?api=1&query=Moonlit+Sanctuary+Wildlife+Conservation+Park"],
+["途中","The Nobbies","约20分钟；巴斯海峡海景与海岸风光。","https://www.google.com/maps/search/?api=1&query=The+Nobbies+Phillip+Island"],
+["晚间","Penguin Parade / Penguins Plus","约2小时15分钟；企鹅归巢，已升级 Penguins Plus 高级观景台。","https://www.google.com/maps/search/?api=1&query=Phillip+Island+Penguin+Parade"],
 ["21:00","返回墨尔本","一日游结束，返回市区。","https://www.google.com/maps/search/?api=1&query=Space+Hotel+380+Russell+St+Melbourne"]
 ]},
 {d:"D10",date:"10/24",week:"周六",city:"MELBOURNE",route:["Crowne Plaza Carlton","Melbourne City","PARKROYAL Melbourne Airport"],items:[
 ["11:00","Crowne Plaza Melbourne Carlton 退房","墨尔本市内休闲游；具体路线之后再规划。",""],
 ["下午","Melbourne City","暂留为空，不提前塞景点。",""],
-["20:00","PARKROYAL Melbourne Airport 入住","Melbourne Airport, Arrival Dr, Tullamarine VIC 3045。","https://www.google.com/maps/search/?api=1&query=Melbourne+Airport+Arrival+Dr+Tullamarine+VIC+3045"],
+["15:00","PARKROYAL Melbourne Airport 入住","Melbourne Airport, Arrival Dr, Tullamarine VIC 3045。","https://www.google.com/maps/search/?api=1&query=Melbourne+Airport+Arrival+Dr+Tullamarine+VIC+3045"],
 ]},
 {d:"D11",date:"10/25",week:"周日",city:"MELBOURNE → SHANGHAI",route:["PARKROYAL Melbourne Airport","Melbourne Airport T2","Shanghai"],items:[
 ["09:00","HO1656 起飞 · Melbourne Airport T2","回程航班，16:20 抵达上海。",""],
@@ -388,10 +398,13 @@ const todos=[
 ["opera","预订 Sydney Opera House 门票 / tour"],
 ["whale","确认 10/16 Harbour Whale Watching 船票与具体班次"],
 ["insurance","购买旅行保险"],
-["esim","准备澳洲 交通卡、电话卡 / 国内sim卡开通国际漫游"],
+["esim","准备澳洲 eSIM / 国际漫游"],
 ["adapter","携带英标八字转换插头"],
 ["sunscreen","准备防晒用品"],
+["hiking","购买徒步相关用品（徒步鞋袜、帽子、轻便背包等）"],
+["clothes","准备出行衣物（按上海出发 + 悉尼/墨尔本早晚温差分层准备）"],
 ["longflight","准备长途航班机上用品"],
+["details","补齐 Melbourne 两家酒店的精确地址 / 电话"],
 ["tour","保存两场 Klook 一日游订单到手机离线备用"]
 ];
 const todoEl=document.getElementById("todos");
